@@ -10,12 +10,13 @@ import android.widget.EditText;
 import java.util.ArrayList;
 
 public class backOfHouse extends AppCompatActivity {
-    OrderAdapter adapter;
+    DisplayAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_order);
+        setContentView(R.layout.activity_back_of_house);
         //displayItem();
+
         // data to populate the RecyclerView with
         ArrayList<String> animalNames = new ArrayList<>();
         animalNames.add("Horse");
@@ -25,15 +26,11 @@ public class backOfHouse extends AppCompatActivity {
         animalNames.add("Goat");
 
         //set the adapter
-        RecyclerView view = findViewById(R.id.recycler_orders);
-        adapter = new OrderAdapter(this, animalNames);
+        RecyclerView view = findViewById(R.id.recycler_display_orders);
+        adapter = new DisplayAdapter(this, animalNames);
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
     }
-
-
-
-
 
     public void displayItem(){
         String foodItem = "Burger";
