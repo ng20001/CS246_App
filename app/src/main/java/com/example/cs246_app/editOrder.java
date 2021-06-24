@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class editOrder extends AppCompatActivity {
 
     public void displayItem(){
         String foodItem = "Burger";
-        EditText text = findViewById(R.id.foodItemDisplay);
+        EditText text = findViewById(R.id.foodItemDisplay2);
         //set text to it
         text.setText(foodItem);
     }
