@@ -1,13 +1,13 @@
 package com.example.cs246_app;
-
-import java.util.List;
-import java.util.Map;
+import com.google.gson.Gson;
 
 public class Menu {
-    List<MenuItem> menuItemList;
+    String menuJson = new MenuList().Json;
 
-    public void display(){
+    public void display() {
         //display menu items on the menu screen
+        Gson gson = new Gson();
+        MenuItem menuItem = gson.fromJson(menuJson, MenuItem.class);
     }
 
 }

@@ -1,7 +1,12 @@
 package com.example.cs246_app;
+import com.google.gson.Gson;
 
 public class MenuItem {
-    //get data from JSON
     String foodName;
     double price;
+
+    public MenuItem(String foodName, double price) {
+        this.foodName = foodName;
+        this.price = price;
+    }
 }
