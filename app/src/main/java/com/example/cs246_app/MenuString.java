@@ -1,8 +1,8 @@
 package com.example.cs246_app;
 
-public class MenuList {
+public class MenuString {
     String Json;
-    public MenuList(){
+    public MenuString(){
         Json = "[\n" +
                 "    { 'foodName' : 'Chocolate Caliente',\n" +
                 "      'price'  : '38.0'\n" +
