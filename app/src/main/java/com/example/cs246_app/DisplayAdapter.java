@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
+public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHolder> {
 
     private List<String> mData;
     private LayoutInflater mInflater;
-    private OrderAdapter.ItemClickListener mClickListener;
+    private DisplayAdapter.ItemClickListener mClickListener;
 
     // data is passed into the constructor
     DisplayAdapter(Context context, List<String> data) {
@@ -27,14 +27,14 @@ public class DisplayAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder
 
     // inflates the row layout from xml when needed
     @Override
-    public OrderAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.row_edit_order, parent, false);
-        return new OrderAdapter.ViewHolder(view);
+    public DisplayAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.row_display_order, parent, false);
+        return new DisplayAdapter.ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
     @Override
-    public void onBindViewHolder(OrderAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(DisplayAdapter.ViewHolder holder, int position) {
         String animal = mData.get(position);
         holder.myTextView.setText(animal);
     }
@@ -96,7 +96,7 @@ public class DisplayAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder
     }
 
     // allows clicks events to be caught
-    void setClickListener(OrderAdapter.ItemClickListener itemClickListener) {
+    void setClickListener(DisplayAdapter.ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
