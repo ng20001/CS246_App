@@ -32,10 +32,10 @@ public class backOfHouse extends AppCompatActivity {
         view.setAdapter(adapter);
     }
 
-    public void displayItem(){
+    /*public void displayItem(){
         String foodItem = "Burger";
         EditText text = findViewById(R.id.foodItemDisplay2);
         //set text to it
         text.setText(foodItem);
-    }
+    }*/
 }

@@ -20,4 +20,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void onClickDisplayOrder(View view){
+        Intent intent = new Intent(this, backOfHouse.class);
+        startActivity(intent);
+
+    }
 }
