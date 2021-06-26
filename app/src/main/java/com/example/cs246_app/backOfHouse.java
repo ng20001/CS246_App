@@ -19,11 +19,11 @@ public class backOfHouse extends AppCompatActivity {
 
         // data to populate the RecyclerView with
         ArrayList<String> animalNames = new ArrayList<>();
-        animalNames.add("Horse");
-        animalNames.add("Cow");
-        animalNames.add("Camel");
-        animalNames.add("Sheep");
-        animalNames.add("Goat");
+        animalNames.add("Burger");
+        animalNames.add("Sandwich");
+        animalNames.add("Cake");
+        animalNames.add("Tea");
+        animalNames.add("Soda");
 
         //set the adapter
         RecyclerView view = findViewById(R.id.recycler_display_orders);
