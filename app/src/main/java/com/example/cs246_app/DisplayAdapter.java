@@ -55,16 +55,12 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
             myTextView = itemView.findViewById(R.id.foodItemDisplay2);
             itemView.setOnClickListener(this);
             row = itemView;
-            Button add = row.findViewById(R.id.buttonAdd);
-            Button decrease = row.findViewById(R.id.buttonDecrease);
-            add.setOnClickListener(this::addItem);
+
+            Button decrease = row.findViewById(R.id.buttonDecrease2);
+
             decrease.setOnClickListener(this::decreaseItem);
         }
         int item = 0;
-        public void addItem(View view){
-            item++;
-            displayQuantity();
-        }
 
         public void decreaseItem(View view){
             if (item > 0){
@@ -79,7 +75,7 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
 
         public void displayQuantity(){
             //find view by id
-            EditText text = row.findViewById(R.id.quantityBtn);
+            EditText text = row.findViewById(R.id.quantityBtn2);    //hereeeeeeeeeee
             //set text to it
             text.setText(String.valueOf(item));
 
