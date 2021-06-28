@@ -13,8 +13,10 @@ public class Menu {
     public void display() {
         //display menu items on the menu screen
         Gson gson = new Gson();
-        MenuItem[] menuItem = gson.fromJson(menuJson, MenuItem[].class);
-        System.out.print(menuItem);
+        MenuItem menuItem = gson.fromJson(menuJson, MenuItem.class);
+//        System.out.print(menuItem);
+        System.out.println(menuItem.foodList.get(0).get("name"));
+        System.out.println(menuItem.foodList.get(0).get("price"));
     }
 
 }

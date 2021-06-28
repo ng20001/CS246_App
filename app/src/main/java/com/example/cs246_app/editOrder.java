@@ -10,7 +10,7 @@ import android.widget.EditText;
 import java.util.ArrayList;
 
 public class editOrder extends AppCompatActivity {
-    OrderAdapter adapter;
+//    OrderAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +26,9 @@ public class editOrder extends AppCompatActivity {
 
         //set the adapter
         RecyclerView view = findViewById(R.id.recycler_orders);
-        adapter = new OrderAdapter(this, animalNames);
-        view.setLayoutManager(new LinearLayoutManager(this));
-        view.setAdapter(adapter);
+//        adapter = new OrderAdapter(this, animalNames);
+//        view.setLayoutManager(new LinearLayoutManager(this));
+//        view.setAdapter(adapter);
     }
 
 

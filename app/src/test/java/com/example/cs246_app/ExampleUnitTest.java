@@ -15,4 +15,9 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
     //here is my code. Yoli
+    @Test
+    public void menutest() {
+        Menu menu = new Menu();
+        menu.display();
+    }
 }
