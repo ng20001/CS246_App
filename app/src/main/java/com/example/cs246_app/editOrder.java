@@ -8,12 +8,21 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class editOrder extends AppCompatActivity {
-//    OrderAdapter adapter;
+    OrderAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //create Id every time it is called
+        int Min = 1;
+        int Max = 100;
+        int val = Min + (int)(Math.random()*((Max - Min)+1));
+        String random = String.valueOf(val);
+        System.out.println(random);
+
         setContentView(R.layout.activity_edit_order);
         //displayItem();
         // data to populate the RecyclerView with
@@ -26,19 +35,16 @@ public class editOrder extends AppCompatActivity {
 
         //set the adapter
         RecyclerView view = findViewById(R.id.recycler_orders);
-//        adapter = new OrderAdapter(this, animalNames);
-//        view.setLayoutManager(new LinearLayoutManager(this));
-//        view.setAdapter(adapter);
+        adapter = new OrderAdapter(this, animalNames);
+        view.setLayoutManager(new LinearLayoutManager(this));
+        view.setAdapter(adapter);
     }
 
 
-
-
-
-    public void displayItem(){
+    /*public void displayItem(){
         String foodItem = "Burger";
         EditText text = findViewById(R.id.foodItemDisplay2);
         //set text to it
         text.setText(foodItem);
-    }
+    }*/
 }
