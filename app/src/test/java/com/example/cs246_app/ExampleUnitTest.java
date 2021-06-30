@@ -15,9 +15,11 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
     //here is my code. Yoli
+
+    //test for fetching json data
     @Test
-    public void menutest() {
-        Menu menu = new Menu();
-        menu.display();
+    public void menuTest() {
+//        Menu menu = new Menu();
+//        menu.display();
     }
 }

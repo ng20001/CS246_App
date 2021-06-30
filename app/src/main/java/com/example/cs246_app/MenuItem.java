@@ -5,16 +5,27 @@ import java.util.List;
 import java.util.Map;
 
 public class MenuItem {
-    String foodName;
+    String name;
     double price;
-    List<Map> foodList;
 
-//    public MenuItem(String foodName, double price) {
-//        this.foodName = foodName;
-//        this.price = price;
-//    }
+    public String getName() {
+        return name;
+    }
 
-    public MenuItem(List<Map> foodList) {
-        this.foodList = foodList;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "name: " + name + "\nprice: " + price;
     }
 }
