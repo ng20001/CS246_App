@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,14 +17,19 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static MainActivity INSTANCE = null;
     List<String> orders;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        if (INSTANCE == null) {
+            INSTANCE = this;
+        } else {
+            //throw error
+            Log.wtf("MainActivity", "An error ocurred");
+        }
     }
 
     public void onClickAddOrder(View view){
@@ -65,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
     public void onClickSeeOrders(View view){
         Intent intent = new Intent(this, showOrders.class);
         startActivity(intent);
-
     }
 
 }

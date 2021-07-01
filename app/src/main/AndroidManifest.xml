@@ -13,7 +13,7 @@
         <activity android:name=".backOfHouse"/>
 
         <activity android:name=".payOrder"/>
-
+        <activity android:name=".showOrders"/>
         <activity android:name=".editOrder"/>
         <activity android:name=".MainActivity">
             <intent-filter>
