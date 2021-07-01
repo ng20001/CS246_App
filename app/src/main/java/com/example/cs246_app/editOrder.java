@@ -16,12 +16,7 @@ public class editOrder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //create Id every time it is called
-        int Min = 1;
-        int Max = 100;
-        int val = Min + (int)(Math.random()*((Max - Min)+1));
-        String random = String.valueOf(val);
-        System.out.println(random);
+
 
         setContentView(R.layout.activity_edit_order);
         //displayItem();

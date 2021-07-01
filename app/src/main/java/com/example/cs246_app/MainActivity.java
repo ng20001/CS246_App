@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<> orders;
+    List<String> orders;
 
 
     @Override
@@ -29,7 +29,11 @@ public class MainActivity extends AppCompatActivity {
     public void onClickAddOrder(View view){
         Intent intent = new Intent(this, editOrder.class);
         startActivity(intent);
-
+        int Min = 1;
+        int Max = 100;
+        int val = Min + (int)(Math.random()*((Max - Min)+1));
+        String random = String.valueOf(val);
+        orders.add(random);
     }
 
     public void onClickDisplayOrder(View view){
