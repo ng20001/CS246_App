@@ -62,4 +62,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void onClickSeeOrders(View view){
+        Intent intent = new Intent(this, showOrders.class);
+        startActivity(intent);
+
+    }
+
 }
