@@ -14,7 +14,7 @@ public class showOrders extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_edit_order);
+        setContentView(R.layout.activity_show_orders);
         //displayItem();
         // data to populate the RecyclerView with
 

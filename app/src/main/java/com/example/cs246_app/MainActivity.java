@@ -54,18 +54,15 @@ public class MainActivity extends AppCompatActivity {
         Gson gson = new Gson();
         Type listMenuType = new TypeToken<List<MenuItem>>() { }.getType();
 
-
         List<MenuItem> menu = gson.fromJson(jsonFileString, listMenuType);
         for (int i = 0; i < menu.size(); i++) {
             Log.i("data", "> Item " + i + "\n" + menu.get(i));
         }
-
     }
 
     public void onClickPayOrder(View view){
         Intent intent = new Intent(this, payOrder.class);
         startActivity(intent);
-
     }
 
     public void onClickSeeOrders(View view){

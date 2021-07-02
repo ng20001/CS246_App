@@ -15,7 +15,7 @@ import java.util.List;
 public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
     private List<String> mData;
     private LayoutInflater mInflater;
-    private static OrderAdapter.ItemClickListener mClickListener;
+    private static ShowAdapter.ItemClickListener mClickListener;
 
     // data is passed into the constructor
     ShowAdapter(Context context, List<String> data) {
@@ -26,13 +26,13 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
     // inflates the row layout from xml when needed
     @Override
     public ShowAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.row_edit_order, parent, false);
-        return new ShowAdapter().ViewHolder(view);
+        View view = mInflater.inflate(R.layout.row_show_orders, parent, false);
+        return new ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
     @Override
-    public void onBindViewHolder(OrderAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ShowAdapter.ViewHolder holder, int position) {
         String animal = mData.get(position);
         holder.myTextView.setText(animal);
     }
@@ -50,39 +50,22 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
         View row;
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.foodItemDisplay2);
+            myTextView = itemView.findViewById(R.id.orderID);
             itemView.setOnClickListener(this);
             row = itemView;
-            Button add = row.findViewById(R.id.buttonAdd);
-            Button decrease = row.findViewById(R.id.buttonDecrease);
-            add.setOnClickListener(this::addItem);
-            decrease.setOnClickListener(this::decreaseItem);
-        }
-        //onclickListener
-        int item = 0;
-        public void addItem(View view){
-            item++;
-            displayQuantity();
+
+            Button orderID = row.findViewById(R.id.orderID);
+            orderID.setOnClickListener(this::displayID);
         }
 
-        public void decreaseItem(View view){
-            if (item > 0){
-                item--;
-            }
-            else{
-                item = 0;
-            }
-
-            displayQuantity();
-        }
-
-        public void displayQuantity(){
+        public void displayID(View view){
             //find view by id
-            EditText text = row.findViewById(R.id.quantityBtn3);
-            //set text to it
-            text.setText(String.valueOf(item));
+            EditText text = row.findViewById(R.id.orderID);
+
+            //text.setText(String.valueOf(orders));
 
         }
+
         @Override
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
@@ -96,7 +79,7 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
 
     // allows clicks events to be caught
     void setClickListener(OrderAdapter.ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
+        this.mClickListener = (ItemClickListener) itemClickListener;
     }
 
     // parent activity will implement this method to respond to click events
