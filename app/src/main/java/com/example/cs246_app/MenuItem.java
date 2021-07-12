@@ -1,31 +1,57 @@
 package com.example.cs246_app;
-import com.google.gson.Gson;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-import java.util.List;
-import java.util.Map;
+public class MenuItem implements Parcelable {
+    String foodItem;
+    double cost;
 
-public class MenuItem {
-    String name;
-    double price;
-
-    public String getName() {
-        return name;
+    protected MenuItem(Parcel in) {
+        foodItem = in.readString();
+        cost = in.readDouble();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public static final Creator<MenuItem> CREATOR = new Creator<MenuItem>() {
+        @Override
+        public MenuItem createFromParcel(Parcel in) {
+            return new MenuItem(in);
+        }
+
+        @Override
+        public MenuItem[] newArray(int size) {
+            return new MenuItem[size];
+        }
+    };
+
+    public String getFoodItem() {
+        return foodItem;
     }
 
-    public double getPrice() {
-        return price;
+    public void setFoodItem(String foodItem) {
+        this.foodItem = foodItem;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 
     @Override
     public String toString() {
-        return "name: " + name + "\nprice: " + price;
+        return "name: " + foodItem + "\nprice: " + cost;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(foodItem);
+        dest.writeDouble(cost);
     }
 }

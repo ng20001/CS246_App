@@ -1,37 +1,36 @@
 [
-    { "name" : "Chocolate Caliente",
-      "price"  : "38.0"
-    },
+  { "foodItem" : "Chocolate Caliente",
+    "cost"  : "38.0"
+  },
+  { "foodItem" : "Té",
+    "cost"  : "28.0"
+  },
 
-    { "name" : "Té",
-      "price"  : "28.0"
-    },
+  { "foodItem" : "Smootie",
+    "cost"  : "41.0"
+  },
 
-    { "name" : "Smootie",
-      "price"  : "41.0"
-    },
+  { "foodItem" : "Soda Italiana",
+    "cost"  : "45.0"
+  },
 
-    { "name" : "Soda Italiana",
-      "price"  : "45.0"
-    },
+  { "foodItem" : "Pastel de chocolate",
+    "cost"  : "40.0"
+  },
 
-    { "name" : "Pastel de chocolate",
-      "price"  : "40.0"
-    },
+  { "foodItem" : "Pay de nuez",
+    "cost"  : "40.0"
+  },
 
-    { "name" : "Pay de nuez",
-      "price"  : "40.0"
-    },
+  { "foodItem" : "Crepa dulce",
+    "cost"  : "55.0"
+  },
 
-    { "name" : "Crepa dulce",
-      "price"  : "55.0"
-    },
+  { "foodItem" : "Crepa salada",
+    "cost"  : "50.0"
+  },
 
-    { "name" : "Crepa salada",
-      "price"  : "50.0"
-    },
-
-    { "name" : "Banderilla",
-      "price"  : "12.0"
-    }
+  { "foodItem" : "Banderilla",
+    "cost"  : "12.0"
+  }
 ]

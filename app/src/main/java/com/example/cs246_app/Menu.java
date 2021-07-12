@@ -8,12 +8,14 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Menu {
+public class Menu{
     static String getJsonFromAssets(Context context, String fileName) {
         String jsonString;
         try {
@@ -36,6 +38,4 @@ public class Menu {
         }
         return jsonString;
     }
-
-
 }
