@@ -35,12 +35,9 @@ public class MainActivity extends AppCompatActivity {
             //throw error
             Log.wtf("MainActivity", "An error ocurred");
         }
-
     }
 
     public void onClickDisplayOrder(View view){
-
-
         // Create Json string
         String jsonFileString = Menu.getJsonFromAssets(getApplicationContext(), "menu.json");
         // Display Json string on console
