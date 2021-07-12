@@ -10,17 +10,16 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<MenuItem> mData;
     private LayoutInflater mInflater;
     private DisplayAdapter.ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    DisplayAdapter(Context context, List<String> data) {
+    DisplayAdapter(Context context, List<MenuItem> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -35,8 +34,8 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(DisplayAdapter.ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        MenuItem menu = mData.get(position);
+        holder.myTextView.setText(menu.getFoodItem());
     }
 
     // total number of rows
@@ -53,7 +52,7 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
         ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.foodItemDisplay2);
-            itemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);  
             row = itemView;
 
             Button decrease = row.findViewById(R.id.buttonDecrease2);
@@ -75,10 +74,9 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
 
         public void displayQuantity(){
             //find view by id
-            EditText text = row.findViewById(R.id.quantityBtn2);    //hereeeeeeeeeee
+            EditText text = row.findViewById(R.id.quantityBtn2);
             //set text to it
             text.setText(String.valueOf(item));
-
         }
         @Override
         public void onClick(View view) {
@@ -88,7 +86,7 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
 
     // convenience method for getting data at click position
     String getItem(int id) {
-        return mData.get(id);
+        return String.valueOf(mData.get(id));
     }
 
     // allows clicks events to be caught

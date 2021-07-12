@@ -15,27 +15,14 @@ public class backOfHouse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_back_of_house);
-        //displayItem();
 
-        // data to populate the RecyclerView with
-        ArrayList<String> animalNames = new ArrayList<>();
-        animalNames.add("Burger");
-        animalNames.add("Sandwich");
-        animalNames.add("Cake");
-        animalNames.add("Tea");
-        animalNames.add("Soda");
+        Bundle bundle = getIntent().getExtras();
+        ArrayList<MenuItem> arraylist = bundle.getParcelableArrayList("MENU");
 
         //set the adapter
         RecyclerView view = findViewById(R.id.recycler_display_orders);
-        adapter = new DisplayAdapter(this, animalNames);
+        adapter = new DisplayAdapter(this, arraylist);
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
     }
-
-    /*public void displayItem(){
-        String foodItem = "Burger";
-        EditText text = findViewById(R.id.foodItemDisplay2);
-        //set text to it
-        text.setText(foodItem);
-    }*/
 }

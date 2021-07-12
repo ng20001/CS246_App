@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 
@@ -13,12 +14,15 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     public static MainActivity INSTANCE = null;
-    List<String> orders;
+    Map<String, Map<MenuItem, Integer>> orders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,29 +30,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (INSTANCE == null) {
             INSTANCE = this;
+            this.orders = new HashMap<>();
         } else {
             //throw error
             Log.wtf("MainActivity", "An error ocurred");
         }
-    }
 
-    public void onClickAddOrder(View view){
-        Intent intent = new Intent(this, editOrder.class);
-        startActivity(intent);
-        int Min = 1;
-        int Max = 100;
-        int val = Min + (int)(Math.random()*((Max - Min)+1));
-        String random = String.valueOf(val);
-        orders.add(random);
     }
 
     public void onClickDisplayOrder(View view){
-        Intent intent = new Intent(this, backOfHouse.class);
-        startActivity(intent);
+
 
         // Create Json string
         String jsonFileString = Menu.getJsonFromAssets(getApplicationContext(), "menu.json");
         // Display Json string on console
+        assert jsonFileString != null;
         Log.i("data", jsonFileString);
 
         Gson gson = new Gson();
@@ -58,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < menu.size(); i++) {
             Log.i("data", "> Item " + i + "\n" + menu.get(i));
         }
+
+        Intent intent = new Intent(this, backOfHouse.class);
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList("MENU", (ArrayList<? extends Parcelable>) menu);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
     }
 
     public void onClickPayOrder(View view){

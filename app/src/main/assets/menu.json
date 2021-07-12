@@ -1,0 +1,36 @@
+[
+  { "foodItem" : "Chocolate Caliente",
+    "cost"  : "38.0"
+  },
+  { "foodItem" : "Té",
+    "cost"  : "28.0"
+  },
+
+  { "foodItem" : "Smootie",
+    "cost"  : "41.0"
+  },
+
+  { "foodItem" : "Soda Italiana",
+    "cost"  : "45.0"
+  },
+
+  { "foodItem" : "Pastel de chocolate",
+    "cost"  : "40.0"
+  },
+
+  { "foodItem" : "Pay de nuez",
+    "cost"  : "40.0"
+  },
+
+  { "foodItem" : "Crepa dulce",
+    "cost"  : "55.0"
+  },
+
+  { "foodItem" : "Crepa salada",
+    "cost"  : "50.0"
+  },
+
+  { "foodItem" : "Banderilla",
+    "cost"  : "12.0"
+  }
+]

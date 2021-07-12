@@ -44,6 +44,8 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
     }
 
 
+
+
     // stores and recycles views as they are scrolled off screen
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView myTextView;
@@ -53,9 +55,6 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
             myTextView = itemView.findViewById(R.id.orderID);
             itemView.setOnClickListener(this);
             row = itemView;
-
-            Button orderID = row.findViewById(R.id.orderID);
-            orderID.setOnClickListener(this::displayID);
         }
 
         public void displayID(View view){
@@ -78,7 +77,7 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
     }
 
     // allows clicks events to be caught
-    void setClickListener(OrderAdapter.ItemClickListener itemClickListener) {
+    void setClickListener(ShowAdapter.ItemClickListener itemClickListener) {
         this.mClickListener = (ItemClickListener) itemClickListener;
     }
 
