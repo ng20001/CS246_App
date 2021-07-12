@@ -1,0 +1,37 @@
+[
+    { "name" : "Chocolate Caliente",
+      "price"  : "38.0"
+    },
+
+    { "name" : "Té",
+      "price"  : "28.0"
+    },
+
+    { "name" : "Smootie",
+      "price"  : "41.0"
+    },
+
+    { "name" : "Soda Italiana",
+      "price"  : "45.0"
+    },
+
+    { "name" : "Pastel de chocolate",
+      "price"  : "40.0"
+    },
+
+    { "name" : "Pay de nuez",
+      "price"  : "40.0"
+    },
+
+    { "name" : "Crepa dulce",
+      "price"  : "55.0"
+    },
+
+    { "name" : "Crepa salada",
+      "price"  : "50.0"
+    },
+
+    { "name" : "Banderilla",
+      "price"  : "12.0"
+    }
+]
