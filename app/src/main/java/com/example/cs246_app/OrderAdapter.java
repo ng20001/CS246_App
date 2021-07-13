@@ -55,9 +55,10 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             myTextView = itemView.findViewById(R.id.foodItemDisplay2);
             itemView.setOnClickListener(this);
             row = itemView;
+
+            // Buttons (-/+)
             Button add = row.findViewById(R.id.buttonAdd);
             Button decrease = row.findViewById(R.id.buttonDecrease);
-
             // On click listeners
             add.setOnClickListener(this::addItem);
             decrease.setOnClickListener(this::decreaseItem);
