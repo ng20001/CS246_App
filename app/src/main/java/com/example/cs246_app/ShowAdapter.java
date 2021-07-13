@@ -1,6 +1,10 @@
 package com.example.cs246_app;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +14,11 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
@@ -69,6 +78,30 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
         }
+
+        /*public void onClickDisplayOrder(View view){
+            // Create Json string
+            String jsonFileString = Menu.getJsonFromAssets(getApplicationContext(), "menu.json");
+            // Display Json string on console
+            assert jsonFileString != null;
+            Log.i("data", jsonFileString);
+
+            Gson gson = new Gson();
+            Type listMenuType = new TypeToken<List<MenuItem>>() { }.getType();
+
+            List<MenuItem> menu = gson.fromJson(jsonFileString, listMenuType);
+            for (int i = 0; i < menu.size(); i++) {
+                Log.i("data", "> Item " + i + "\n" + menu.get(i));
+            }
+
+            Intent intent = new Intent(this, backOfHouse.class);
+
+            Bundle bundle = new Bundle();
+            bundle.putParcelableArrayList("MENU", (ArrayList<? extends Parcelable>) menu);
+            intent.putExtras(bundle);
+
+            startActivity(intent);
+        }*/
     }
 
     // convenience method for getting data at click position
