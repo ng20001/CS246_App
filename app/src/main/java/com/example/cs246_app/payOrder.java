@@ -22,6 +22,7 @@ public class payOrder extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle args = intent.getExtras();
+        // Get the orderItems from editOrder.onClickPay()
         Map<MenuItem, Integer> menu = (Map<MenuItem, Integer>) args.getSerializable("MENU");
 
         List<Map.Entry<MenuItem, Integer>> customOrder = new ArrayList<>(menu.entrySet());

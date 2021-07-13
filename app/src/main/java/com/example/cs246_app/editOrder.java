@@ -50,12 +50,18 @@ public class editOrder extends AppCompatActivity {
     public void onClickPay(View view){
         RecyclerView recyclerView = findViewById(R.id.recycler_orders);
         HashMap<MenuItem, Integer> orderItems = new HashMap<>();
+
+        // Creating the recycler view for the pay list: vh
         for(int i = 0; i<recyclerView.getChildCount(); i++){
             OrderAdapter.ViewHolder vh = (OrderAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
             orderItems.put(adapter.getItem(i), vh.item);
         }
+
+        // Setup new intent: payOrder
         Intent intent = new Intent(this, payOrder.class);
+        // Put orderItems(HashMap) into the intent
         intent.putExtra("MENU", orderItems);
+
         startActivity(intent);
     }
 //adding comments
