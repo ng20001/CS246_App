@@ -32,11 +32,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
-    // binds the data to the TextView in each row
+    // Binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         MenuItem menu = mData.get(position);
-        holder.myTextView.setText(menu.getFoodItem());
+        holder.myTextView.setText(menu.getFoodItem()); // myTextView:line 55, .getFoodItem(): MenuItem.java:26
     }
 
     // total number of rows

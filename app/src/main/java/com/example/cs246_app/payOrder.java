@@ -40,11 +40,11 @@ public class payOrder extends AppCompatActivity {
         view.setLayoutManager(new LinearLayoutManager(this));
 
         // Q: Why is the listing order random?
-        System.out.println("---------------------");
-        for (int i = 0; i < customOrder.size(); i++) {
-            System.out.println(adapter.getItem(i));
-        }
-        System.out.println("---------------------");
+//        System.out.println("---------------------");
+//        for (int i = 0; i < customOrder.size(); i++) {
+//            System.out.println(adapter.getItem(i));
+//        }
+//        System.out.println("---------------------");
 
         view.setAdapter(adapter);
     }
