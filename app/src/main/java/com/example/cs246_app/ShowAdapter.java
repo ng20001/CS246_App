@@ -85,4 +85,5 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder>{
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+    //adding comments
 }

@@ -42,4 +42,5 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/moneyAmount"
         app:layout_constraintTop_toTopOf="parent" />
+    <!-- Write your comment-->
 </androidx.constraintlayout.widget.ConstraintLayout>

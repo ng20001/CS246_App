@@ -25,4 +25,5 @@ public class backOfHouse extends AppCompatActivity {
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
     }
+    //adding comments
 }

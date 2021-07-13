@@ -98,5 +98,6 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+    //adding comments
 }
 

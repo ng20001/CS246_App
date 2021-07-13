@@ -54,4 +54,5 @@ public class MenuItem implements Parcelable {
         dest.writeString(foodItem);
         dest.writeDouble(cost);
     }
+    //adding comments
 }
