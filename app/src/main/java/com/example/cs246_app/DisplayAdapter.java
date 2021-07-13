@@ -55,9 +55,9 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
             itemView.setOnClickListener(this);  
             row = itemView;
 
-            Button decrease = row.findViewById(R.id.buttonDecrease2);
-
-            decrease.setOnClickListener(this::decreaseItem);
+//            Button decrease = row.findViewById(R.id.buttonDecrease2);
+//
+//            decrease.setOnClickListener(this::decreaseItem);
         }
         int item = 0;
 
