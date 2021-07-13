@@ -58,5 +58,9 @@ public class editOrder extends AppCompatActivity {
         intent.putExtra("MENU", orderItems);
         startActivity(intent);
     }
+    /*public void onClickPayOrder(View view){
+        Intent intent = new Intent(this, payOrder.class);
+        startActivity(intent);
+    }*/
 //adding comments
 }
