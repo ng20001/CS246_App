@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClickAddOrder(View view){
+//        Button: "PLACE NEW ORDER"
         Intent intent = new Intent(this, editOrder.class);
         startActivity(intent);
 

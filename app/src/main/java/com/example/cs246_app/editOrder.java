@@ -48,6 +48,8 @@ public class editOrder extends AppCompatActivity {
     }
 
     public void onClickPay(View view){
+//        1. Go to pay view
+//        2. Send the order list to pay view
         RecyclerView recyclerView = findViewById(R.id.recycler_orders);
         HashMap<MenuItem, Integer> orderItems = new HashMap<>();
 

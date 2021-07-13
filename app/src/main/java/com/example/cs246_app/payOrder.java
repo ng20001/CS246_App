@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -22,8 +23,10 @@ public class payOrder extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle args = intent.getExtras();
+        Log.d("args", args.toString());
         // Get the orderItems from editOrder.onClickPay()
-        Map<MenuItem, Integer> menu = (Map<MenuItem, Integer>) args.getSerializable("MENU");
+//        Map<MenuItem, Integer> menu = (Map<MenuItem, Integer>) args.getSerializable("MENU");
+        HashMap<MenuItem, Integer> menu = (HashMap<MenuItem, Integer>) args.getSerializable("MENU");
 
         List<Map.Entry<MenuItem, Integer>> customOrder = new ArrayList<>(menu.entrySet());
 
@@ -37,6 +40,8 @@ public class payOrder extends AppCompatActivity {
     }
 
     public void onClickSubmit(View view){
+//        1. Return to the main view
+//        2. Send the order list to BOH
         int Min = 1;
         int Max = 100;
         int val = Min + (int)(Math.random()*((Max - Min)+1));
