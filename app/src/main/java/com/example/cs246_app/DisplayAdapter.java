@@ -59,9 +59,9 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
 //
 //            decrease.setOnClickListener(this::decreaseItem);
         }
-        int item = 0;
+        //int item = 0;
 
-        public void decreaseItem(View view){
+        /*public void decreaseItem(View view){
             if (item > 0){
                 item--;
             }
@@ -70,14 +70,14 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
             }
 
             displayQuantity();
-        }
+        }*/
 
-        public void displayQuantity(){
+        /*public void displayQuantity(){
             //find view by id
             EditText text = row.findViewById(R.id.quantityBtn2);
             //set text to it
             text.setText(String.valueOf(item));
-        }
+        }*/
         @Override
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());

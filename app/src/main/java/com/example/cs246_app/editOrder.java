@@ -64,5 +64,9 @@ public class editOrder extends AppCompatActivity {
 
         startActivity(intent);
     }
+    /*public void onClickPayOrder(View view){
+        Intent intent = new Intent(this, payOrder.class);
+        startActivity(intent);
+    }*/
 //adding comments
 }
