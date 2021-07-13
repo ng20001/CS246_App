@@ -23,23 +23,30 @@ public class payOrder extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle args = intent.getExtras();
-        Log.d("args", args.toString());
+//        Log.d("debug", intent.getExtras().get());
+
         // Get the orderItems from editOrder.onClickPay()
 //        Map<MenuItem, Integer> menu = (Map<MenuItem, Integer>) args.getSerializable("MENU");
-        HashMap<MenuItem, Integer> menu = (HashMap<MenuItem, Integer>) args.getSerializable("MENU");
+        Map<MenuItem, Integer> menu = (Map<MenuItem, Integer>) args.getSerializable("MENU");
+
 
         List<Map.Entry<MenuItem, Integer>> customOrder = new ArrayList<>(menu.entrySet());
 
+
         //update the Pay adapter to receive list
         //update the adapter so it populates the rows using the info from inside the list
-
         RecyclerView view = findViewById(R.id.recycler_pay_orders);
         adapter = new PayAdapter(this, customOrder);
         view.setLayoutManager(new LinearLayoutManager(this));
+
+        // Q: Why is the listing order random?
+        System.out.println(adapter.getItem(0));
+
         view.setAdapter(adapter);
     }
 
     public void onClickSubmit(View view){
+//        Button: "SUBMIT ORDER" to Layout: activity_main
 //        1. Return to the main view
 //        2. Send the order list to BOH
         int Min = 1;
@@ -48,7 +55,7 @@ public class payOrder extends AppCompatActivity {
         String random = String.valueOf(val);
         RecyclerView recyclerView = findViewById(R.id.recycler_show_orders);
         Map<Map.Entry<MenuItem, Integer>, Integer> orderItems = new HashMap<>();
-        for(Integer i = 0; i<recyclerView.getChildCount(); i++){
+        for(int i = 0; i<recyclerView.getChildCount(); i++){
             PayAdapter.ViewHolder vh = (PayAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
             orderItems.put(adapter.getItem(i), vh.item);
         }

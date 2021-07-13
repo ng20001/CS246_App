@@ -31,18 +31,19 @@ public class MainActivity extends AppCompatActivity {
             this.orders = new HashMap<String, Map<Map.Entry<MenuItem, Integer>, Integer>>();
         } else {
             //throw error
-            Log.wtf("MainActivity", "An error ocurred");
+            Log.wtf("MainActivity", "An error occurred");
         }
     }
 
     public void onClickAddOrder(View view){
-//        Button: "PLACE NEW ORDER"
+//        Button: "PLACE NEW ORDER" to Layout: activity_edit_order
         Intent intent = new Intent(this, editOrder.class);
         startActivity(intent);
 
     }
 
     public void onClickSeeOrders(View view){
+//        Button: "SEE ORDERS" to Layout: activity_show_orders
         Intent intent = new Intent(this, showOrders.class);
         startActivity(intent);
     }

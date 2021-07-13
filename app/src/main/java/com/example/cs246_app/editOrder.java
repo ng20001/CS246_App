@@ -27,20 +27,25 @@ public class editOrder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_order);
 
-
+        // Get Json File from Menu class
         String jsonFileString = Menu.getJsonFromAssets(getApplicationContext(), "menu.json");
         // Display Json string on console
         assert jsonFileString != null;
-        Log.i("data", jsonFileString);
+//        Log.i("data", jsonFileString);
 
         Gson gson = new Gson();
         Type listMenuType = new TypeToken<List<MenuItem>>() { }.getType();
 
+        //Assign list from json file
         List<MenuItem> menu = gson.fromJson(jsonFileString, listMenuType);
+
+        //Debug
         for (int i = 0; i < menu.size(); i++) {
             Log.i("data", "> Item " + i + "\n" + menu.get(i));
         }
-        //set the adapter
+
+        //Set the adapter
+        //OrderAdapter
         RecyclerView view = findViewById(R.id.recycler_orders);
         adapter = new OrderAdapter(this, menu);
         view.setLayoutManager(new LinearLayoutManager(this));
@@ -48,20 +53,26 @@ public class editOrder extends AppCompatActivity {
     }
 
     public void onClickPay(View view){
-//        1. Go to pay view
-//        2. Send the order list to pay view
+        //Button: "PROCEED TO PAY" to Layout: activity_pay_order
+        //1. Go to pay view
+        //2. Send the order list to pay view
+
+        //Get recycler view: recycler_orders
         RecyclerView recyclerView = findViewById(R.id.recycler_orders);
+        //orderItems: a list of HashMaps<MenuItem, Integer>
         HashMap<MenuItem, Integer> orderItems = new HashMap<>();
 
         // Creating the recycler view for the pay list: vh
         for(int i = 0; i<recyclerView.getChildCount(); i++){
+            // ??
             OrderAdapter.ViewHolder vh = (OrderAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
+            // adapter.getItem(i): MenuItem (foodItem, cost)
+            // vh.item: Int (qty of foodItem)
             orderItems.put(adapter.getItem(i), vh.item);
         }
 
-        // Setup new intent: payOrder
         Intent intent = new Intent(this, payOrder.class);
-        // Put orderItems(HashMap) into the intent
+        // Put orderItems(HashMap) into the intent and send it
         intent.putExtra("MENU", orderItems);
 
         startActivity(intent);

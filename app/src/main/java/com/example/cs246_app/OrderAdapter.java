@@ -15,8 +15,8 @@ import java.util.List;
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
     //takes the information and put it into the recycler
 
-    private List<MenuItem> mData;
-    private LayoutInflater mInflater;
+    private final List<MenuItem> mData;
+    private final LayoutInflater mInflater;
     private static ItemClickListener mClickListener;
 
     // data is passed into the constructor
@@ -57,9 +57,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             row = itemView;
             Button add = row.findViewById(R.id.buttonAdd);
             Button decrease = row.findViewById(R.id.buttonDecrease);
+
+            // On click listeners
             add.setOnClickListener(this::addItem);
             decrease.setOnClickListener(this::decreaseItem);
         }
+
+        // Clicks behavior
         int item = 0;
         public void addItem(View view){
             item++;
@@ -73,10 +77,10 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             else{
                 item = 0;
             }
-
             displayQuantity();
         }
 
+        // Show qty
         public void displayQuantity(){
             //find view by id
             EditText text = row.findViewById(R.id.quantityBtn3);
