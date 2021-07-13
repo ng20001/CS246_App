@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +29,7 @@ public class payOrder extends AppCompatActivity {
         // Get the orderItems from editOrder.onClickPay()
 //        Map<MenuItem, Integer> menu = (Map<MenuItem, Integer>) args.getSerializable("MENU");
         Map<MenuItem, Integer> menu = (Map<MenuItem, Integer>) args.getSerializable("MENU");
+        double total = (double) args.getSerializable("Total");
 
 
         List<Map.Entry<MenuItem, Integer>> customOrder = new ArrayList<>(menu.entrySet());
@@ -36,6 +38,8 @@ public class payOrder extends AppCompatActivity {
         //update the Pay adapter to receive list
         //update the adapter so it populates the rows using the info from inside the list
         RecyclerView view = findViewById(R.id.recycler_pay_orders);
+        TextView totalAmount = findViewById(R.id.total);
+
         adapter = new PayAdapter(this, customOrder);
         view.setLayoutManager(new LinearLayoutManager(this));
 
@@ -46,7 +50,9 @@ public class payOrder extends AppCompatActivity {
 //        }
 //        System.out.println("---------------------");
 
+        totalAmount.setText("$" + total);
         view.setAdapter(adapter);
+
     }
 
     public void onClickSubmit(View view){

@@ -36,7 +36,8 @@ public class PayAdapter extends RecyclerView.Adapter<PayAdapter.ViewHolder> {
         Map.Entry<MenuItem, Integer> entry = mData.get(position);
         holder.foodItem.setText(entry.getKey().foodItem);
         holder.qty.setText(String.valueOf(entry.getValue()));
-        holder.cost.setText(String.valueOf(entry.getKey().cost * entry.getValue()));
+        holder.cost.setText("$" + entry.getKey().cost * entry.getValue());
+//        holder.total.setText(String.valueOf(entry.getValue()));
     }
 
     // total number of rows
@@ -49,6 +50,7 @@ public class PayAdapter extends RecyclerView.Adapter<PayAdapter.ViewHolder> {
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView foodItem, cost, qty;
+        TextView total;
 
         View row;
         ViewHolder(View itemView) {
@@ -56,6 +58,7 @@ public class PayAdapter extends RecyclerView.Adapter<PayAdapter.ViewHolder> {
             foodItem = itemView.findViewById(R.id.foodItemDisplay3);
             cost = itemView.findViewById(R.id.moneyAmount);
             qty = itemView.findViewById(R.id.quantityBtn3);
+            total = itemView.findViewById(R.id.total);
 
             itemView.setOnClickListener(this);
             row = itemView;

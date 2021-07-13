@@ -62,19 +62,24 @@ public class editOrder extends AppCompatActivity {
         //orderItems: a list of HashMaps<MenuItem, Integer>
         HashMap<MenuItem, Integer> orderItems = new HashMap<>();
 
+        double total = 0;
         // Creating the recycler view for the pay list: vh
         for(int i = 0; i<recyclerView.getChildCount(); i++){
             // ??
             OrderAdapter.ViewHolder vh = (OrderAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
             // adapter.getItem(i): MenuItem (foodItem, cost)
             // vh.item: Int (qty of foodItem)
-            orderItems.put(adapter.getItem(i), vh.item);
+            if (vh.item != 0) {
+                orderItems.put(adapter.getItem(i), vh.item);
+                total += adapter.getItem(i).cost * vh.item;
+            }
+//            orderItems.put(adapter.getItem(i), vh.item);
         }
 
         Intent intent = new Intent(this, payOrder.class);
-        // Put orderItems(HashMap) into the intent and send it
-        intent.putExtra("MENU", orderItems);
 
+        intent.putExtra("MENU", orderItems);
+        intent.putExtra("Total", total);
         startActivity(intent);
     }
     /*public void onClickPayOrder(View view){
