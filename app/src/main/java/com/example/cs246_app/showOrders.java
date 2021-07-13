@@ -1,13 +1,21 @@
 package com.example.cs246_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 public class showOrders extends AppCompatActivity {
     ShowAdapter adapter;
@@ -40,5 +48,28 @@ public class showOrders extends AppCompatActivity {
         });
         view.setAdapter(adapter);
     }
-    //adding comments
+
+    /*public void onClickDisplayOrder(View view){
+        // Create Json string
+        String jsonFileString = Menu.getJsonFromAssets(getApplicationContext(), "menu.json");
+        // Display Json string on console
+        assert jsonFileString != null;
+        Log.i("data", jsonFileString);
+
+        Gson gson = new Gson();
+        Type listMenuType = new TypeToken<List<MenuItem>>() { }.getType();
+
+        List<MenuItem> menu = gson.fromJson(jsonFileString, listMenuType);
+        for (int i = 0; i < menu.size(); i++) {
+            Log.i("data", "> Item " + i + "\n" + menu.get(i));
+        }
+
+        Intent intent = new Intent(this, backOfHouse.class);
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList("MENU", (ArrayList<? extends Parcelable>) menu);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
+    }*/
 }

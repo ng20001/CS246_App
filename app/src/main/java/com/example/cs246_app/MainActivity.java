@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void onClickAddOrder(View view){
 //        Button: "PLACE NEW ORDER"
         Intent intent = new Intent(this, editOrder.class);
@@ -43,33 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onClickDisplayOrder(View view){
-        // Create Json string
-        String jsonFileString = Menu.getJsonFromAssets(getApplicationContext(), "menu.json");
-        // Display Json string on console
-        assert jsonFileString != null;
-        Log.i("data", jsonFileString);
-
-        Gson gson = new Gson();
-        Type listMenuType = new TypeToken<List<MenuItem>>() { }.getType();
-
-        List<MenuItem> menu = gson.fromJson(jsonFileString, listMenuType);
-        for (int i = 0; i < menu.size(); i++) {
-            Log.i("data", "> Item " + i + "\n" + menu.get(i));
-        }
-
-        Intent intent = new Intent(this, backOfHouse.class);
-
-        Bundle bundle = new Bundle();
-        bundle.putParcelableArrayList("MENU", (ArrayList<? extends Parcelable>) menu);
-        intent.putExtras(bundle);
-
-        startActivity(intent);
-    }
-
     public void onClickSeeOrders(View view){
         Intent intent = new Intent(this, showOrders.class);
         startActivity(intent);
     }
-//adding comments
 }
