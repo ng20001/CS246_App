@@ -7,22 +7,26 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_show_orders"
-        android:layout_width="407dp"
-        android:layout_height="620dp"
+        android:layout_width="393dp"
+        android:layout_height="499dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.418" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickAddOrder"
-        android:text="Place new order"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="246dp"
+        android:layout_height="45dp"
+        android:text="Orders:"
+        android:textColor="#333333"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_show_orders" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.049" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

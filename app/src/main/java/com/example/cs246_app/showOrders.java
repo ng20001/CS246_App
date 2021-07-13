@@ -1,6 +1,5 @@
 package com.example.cs246_app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class showOrders extends AppCompatActivity {
     ShowAdapter adapter;
@@ -27,12 +25,6 @@ public class showOrders extends AppCompatActivity {
         adapter = new ShowAdapter(this, new ArrayList<>(MainActivity.INSTANCE.orders.keySet()));
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
-    }
-
-    public void onClickAddOrder(View view){
-        Intent intent = new Intent(this, editOrder.class);
-        startActivity(intent);
-
     }
 
     @Override

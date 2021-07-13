@@ -1,7 +1,15 @@
 package com.example.cs246_app;
 
+import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Billing {
-    public void getOrderTotal(){
+
+    /*public void getOrderTotal(){
         //calculates subtotal
 
     }
@@ -17,5 +25,6 @@ public class Billing {
 
     public void proceedToPay(){
 
-    }
+    }*/
+
 }

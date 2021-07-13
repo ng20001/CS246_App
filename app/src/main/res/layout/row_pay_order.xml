@@ -9,27 +9,37 @@
         android:id="@+id/foodItemDisplay3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#333333"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/quantityBtn3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/moneyAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:text="TextView"
+        android:textColor="#333333"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/quantityBtn3"
-        app:layout_constraintTop_toTopOf="@+id/quantityBtn3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/quantityBtn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
         android:text="TextView"
-        app:layout_constraintTop_toTopOf="@+id/foodItemDisplay3"
-        tools:layout_editor_absoluteX="176dp" />
+        android:textColor="#333333"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/moneyAmount"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

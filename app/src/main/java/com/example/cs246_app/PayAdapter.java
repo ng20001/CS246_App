@@ -4,21 +4,21 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Map;
 
 public class PayAdapter extends RecyclerView.Adapter<PayAdapter.ViewHolder> {
-    private List<String> mData;
+    private List<Map.Entry<MenuItem, Integer>> mData;
     private LayoutInflater mInflater;
     private PayAdapter.ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    PayAdapter(Context context, List<String> data) {
+    PayAdapter(Context context, List<Map.Entry<MenuItem, Integer>> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -33,8 +33,8 @@ public class PayAdapter extends RecyclerView.Adapter<PayAdapter.ViewHolder> {
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(PayAdapter.ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        Map.Entry<MenuItem, Integer> entry = mData.get(position);
+        //holder.myTextView.setText(animal);
     }
 
     // total number of rows
@@ -71,7 +71,7 @@ public class PayAdapter extends RecyclerView.Adapter<PayAdapter.ViewHolder> {
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
+    Map.Entry <MenuItem, Integer> getItem(int id) {
         return mData.get(id);
     }
 
