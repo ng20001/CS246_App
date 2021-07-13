@@ -40,7 +40,7 @@ public class payOrder extends AppCompatActivity {
         int Max = 100;
         int val = Min + (int)(Math.random()*((Max - Min)+1));
         String random = String.valueOf(val);
-        RecyclerView recyclerView = findViewById(R.id.recycler_orders);
+        RecyclerView recyclerView = findViewById(R.id.recycler_show_orders);
         Map<Map.Entry<MenuItem, Integer>, Integer> orderItems = new HashMap<>();
         for(Integer i = 0; i<recyclerView.getChildCount(); i++){
             PayAdapter.ViewHolder vh = (PayAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
