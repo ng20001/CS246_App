@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -63,28 +65,33 @@ public class editOrder extends AppCompatActivity {
         HashMap<MenuItem, Integer> orderItems = new HashMap<>();
 
         double total = 0;
+        boolean validOrder = false;
         // Creating the recycler view for the pay list: vh
         for(int i = 0; i<recyclerView.getChildCount(); i++){
             // ??
             OrderAdapter.ViewHolder vh = (OrderAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
             // adapter.getItem(i): MenuItem (foodItem, cost)
             // vh.item: Int (qty of foodItem)
-            if (vh.item != 0) {
+            if (vh.item != 0) { // Only include the food item that has qty >= 1
                 orderItems.put(adapter.getItem(i), vh.item);
                 total += adapter.getItem(i).cost * vh.item;
+                validOrder = true;
             }
-//            orderItems.put(adapter.getItem(i), vh.item);
         }
 
-        Intent intent = new Intent(this, payOrder.class);
+        if (validOrder){
+            Intent intent = new Intent(this, payOrder.class);
 
-        intent.putExtra("MENU", orderItems);
-        intent.putExtra("Total", total);
-        startActivity(intent);
+            intent.putExtra("MENU", orderItems);
+            intent.putExtra("Total", total);
+            startActivity(intent);
+        } else {
+            Context context = getApplicationContext();
+            CharSequence text = "Order at least 1 item!";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
-    /*public void onClickPayOrder(View view){
-        Intent intent = new Intent(this, payOrder.class);
-        startActivity(intent);
-    }*/
-//adding comments
 }
