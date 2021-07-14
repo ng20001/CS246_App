@@ -18,6 +18,9 @@ public class backOfHouse extends AppCompatActivity {
         setContentView(R.layout.activity_back_of_house);
 
         Bundle bundle = getIntent().getExtras();
+        //change line to getExtra and change list to Map
+        //transform map into list
+        //and give the list to the adpater
         ArrayList<MenuItem> arraylist = bundle.getParcelableArrayList("MENU");
 
         //set the adapter

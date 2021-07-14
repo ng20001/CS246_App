@@ -20,7 +20,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     public static MainActivity INSTANCE = null;
-    Map<String, Map<Map.Entry<MenuItem, Integer>, Integer>> orders;
+    public static Map<String, Map<Map.Entry<MenuItem, Integer>, Integer>> orders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (INSTANCE == null) {
             INSTANCE = this;
-            this.orders = new HashMap<String, Map<Map.Entry<MenuItem, Integer>, Integer>>();
+            MainActivity.orders = new HashMap<String, Map<Map.Entry<MenuItem, Integer>, Integer>>();
         } else {
             //throw error
-            Log.wtf("MainActivity", "An error occurred");
+           // Log.wtf("MainActivity", "An error occurred");
         }
     }
 

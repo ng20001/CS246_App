@@ -15,7 +15,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class showOrders extends AppCompatActivity {
     ShowAdapter adapter;
@@ -31,6 +33,22 @@ public class showOrders extends AppCompatActivity {
         RecyclerView view = findViewById(R.id.recycler_show_orders);
 
         adapter = new ShowAdapter(this, new ArrayList<>(MainActivity.INSTANCE.orders.keySet()));
+        adapter.setClickListener(new ShowAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                String item = adapter.getItem(position);
+                HashMap<MenuItem, Integer> list = new HashMap<>();
+                //MainActivity.orders.get(item);
+                for(Map.Entry<Map.Entry<MenuItem, Integer>, Integer> element : MainActivity.orders.get(item).entrySet()){
+                    //get the menu item and the count
+                    //element.getValue();
+                    list.put(element.getKey().getKey(), element.getValue());
+                }
+                Intent intent = new Intent(showOrders.this, backOfHouse.class);
+                intent.putExtra("MENU", list);
+                startActivity(intent);
+            }
+        });
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
     }
@@ -40,12 +58,6 @@ public class showOrders extends AppCompatActivity {
         super.onResume();
         RecyclerView view = findViewById(R.id.recycler_show_orders);
         adapter = new ShowAdapter(this, new ArrayList<>(MainActivity.INSTANCE.orders.keySet()));
-        adapter.setClickListener(new ShowAdapter.ItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                adapter.getItem(position);
-            }
-        });
         view.setAdapter(adapter);
     }
 

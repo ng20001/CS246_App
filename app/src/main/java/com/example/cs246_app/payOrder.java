@@ -60,18 +60,18 @@ public class payOrder extends AppCompatActivity {
 //        1. Return to the main view
 //        2. Send the order list to BOH
 
-//        int Min = 1;
-//        int Max = 100;
-//        int val = Min + (int)(Math.random()*((Max - Min)+1));
-//        String random = String.valueOf(val);
-//        RecyclerView recyclerView = findViewById(R.id.recycler_show_orders);
-//        Map<Map.Entry<MenuItem, Integer>, Integer> orderItems = new HashMap<>();
-//        for(int i = 0; i<recyclerView.getChildCount(); i++){
-//            PayAdapter.ViewHolder vh = (PayAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
-//            orderItems.put(adapter.getItem(i), vh.item);
-//        }
-//
-//        MainActivity.INSTANCE.orders.put(random, orderItems);
+       int Min = 1;
+        int Max = 100;
+        int val = Min + (int)(Math.random()*((Max - Min)+1));
+        String random = String.valueOf(val);
+        RecyclerView recyclerView = findViewById(R.id.recycler_pay_orders);
+        Map<Map.Entry<MenuItem, Integer>, Integer> orderItems = new HashMap<>();
+        for(int i = 0; i<recyclerView.getChildCount(); i++){
+            PayAdapter.ViewHolder vh = (PayAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
+            orderItems.put(adapter.getItem(i), vh.item);
+        }
+
+        MainActivity.INSTANCE.orders.put(random, orderItems);
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
