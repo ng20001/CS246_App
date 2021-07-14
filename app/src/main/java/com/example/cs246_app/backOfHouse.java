@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class backOfHouse extends AppCompatActivity {
     DisplayAdapter adapter;
@@ -17,19 +22,24 @@ public class backOfHouse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_back_of_house);
 
-        Bundle bundle = getIntent().getExtras();
+        Intent intent = getIntent();
+        /*Bundle bundle = getIntent().getExtras();*/
+
         //change line to getExtra and change list to Map
+        Map<String, String> myMap = (Map<String, String>) intent.getExtras().getParcelableArrayList("MENU");
+
         //transform map into list
-        //and give the list to the adpater
-        ArrayList<MenuItem> arraylist = bundle.getParcelableArrayList("MENU");
+        ArrayList<String> key = new ArrayList<>(myMap. keySet());
+        ArrayList<Integer> qty = new ArrayList<>(myMap. values());
 
         //set the adapter
-        RecyclerView view = findViewById(R.id.recycler_display_orders);
-        adapter = new DisplayAdapter(this, arraylist);
+        //and give the list to the adapter
+        /*RecyclerView view = findViewById(R.id.recycler_display_orders);
+        adapter = new DisplayAdapter(this, keyList);
         view.setLayoutManager(new LinearLayoutManager(this));
-        view.setAdapter(adapter);
+        view.setAdapter(adapter);*/
     }
-    //adding comments
+
     public void onClickDone(View view){
         finish();
     }
