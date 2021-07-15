@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <EditText
-        android:id="@+id/quantityBtn2"
+        android:id="@+id/qty"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -17,11 +17,11 @@
         android:inputType="textPersonName"
         android:textColor="#333333"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/foodItemDisplay2"
+        app:layout_constraintStart_toEndOf="@+id/foodItem"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/foodItemDisplay2"
+        android:id="@+id/foodItem"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"

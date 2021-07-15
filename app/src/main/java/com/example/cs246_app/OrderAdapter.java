@@ -52,7 +52,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         View row;
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.foodItemDisplay2);
+            myTextView = itemView.findViewById(R.id.foodItem);
             itemView.setOnClickListener(this);
             row = itemView;
 
