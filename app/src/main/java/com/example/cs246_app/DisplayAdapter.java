@@ -9,25 +9,34 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHolder> {
-
-    private HashMap<String, Integer> mData;
+    private ArrayList<String> foodItems;
+    private ArrayList<Integer> foodQtys;
+//    private HashMap<String, Integer> mData;
     private LayoutInflater mInflater;
     private DisplayAdapter.ItemClickListener mClickListener;
 
     // data is passed into the constructor
 //    DisplayAdapter(Context context, List<MenuItem> data) {
-    DisplayAdapter(Context context, HashMap<String, Integer> data) {
+    DisplayAdapter(Context context, ArrayList<String> foodItems, ArrayList<Integer> foodQtys) {
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+//        this.mData = data;
+        this.foodItems = foodItems;
+        this.foodQtys = foodQtys;
     }
 
     // inflates the row layout from xml when needed
     @Override
     public DisplayAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+
         View view = mInflater.inflate(R.layout.row_display_order, parent, false);
         return new DisplayAdapter.ViewHolder(view);
     }
@@ -35,22 +44,16 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(DisplayAdapter.ViewHolder holder, int position) {
-//        HashMap<String, Integer> menu = mData.get(position);
-        System.out.println("'position'");
-        System.out.println(position);
-        System.out.println("'mData.entrySet()'");
-        System.out.println(mData.entrySet());
-        System.out.println("'mData.keySet()'");
-        System.out.println(mData.keySet());
 
-        holder.foodItem.setText("food item here");
-        holder.qty.setText("qty here");
+        // Take 2 arrays and get the desired item in the arrays by position
+        holder.foodItem.setText(String.valueOf(foodItems.get(position)));
+        holder.qty.setText(String.valueOf(foodQtys.get(position)));
     }
 
     // total number of rows
     @Override
     public int getItemCount() {
-        return mData.size();
+        return foodItems.size();
     }
 
 
@@ -75,7 +78,7 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
 
     // convenience method for getting data at click position
     String getItem(int id) {
-        return String.valueOf(mData.get(id));
+        return String.valueOf(foodItems.get(id));
     }
 
     // allows clicks events to be caught

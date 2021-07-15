@@ -13,15 +13,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class backOfHouse extends AppCompatActivity {
     DisplayAdapter adapter;
+    private ArrayList<String> foodItems = new ArrayList<>();
+    private ArrayList<Integer> foodQtys = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_back_of_house);
+        System.out.println("Entered BOH");
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -30,24 +36,28 @@ public class backOfHouse extends AppCompatActivity {
 //        Map<MenuItem, Integer> myMap = (Map<MenuItem, Integer>) bundle.getParcelableArrayList("MENU");
         HashMap<String, Integer> myMap = (HashMap<String, Integer>) bundle.getSerializable("MENU");
 
-        System.out.println("'myMap'");
-        System.out.println(myMap);
-
-        //transform map into list
-//        HashMap<String, String> key = new HashMap<String, String>(myMap);
-//        System.out.println("'key'");
-//        System.out.println(key);
-//        ArrayList<String> qty = new ArrayList<>(myMap.values());
-//        System.out.println("'qty'");
-//        System.out.println(qty);
-
 //        List<Map.Entry<String, String>> orderDetail = new ArrayList<>(myMap.entrySet());
         HashMap<String, Integer> orderDetail = new HashMap<>(myMap);
-        System.out.println("'orderDetail'");
+        System.out.println("'orderDetail - to DisplayAdapter parameter'");
         System.out.println(orderDetail);
 
+        Set entrySet = orderDetail.entrySet();
+        Iterator it = entrySet.iterator();
+
+        // Add keys and values from orderDetail(HashMap) into 2 arraylists using iterator
+        while(it.hasNext()){
+            Map.Entry me = (Map.Entry)it.next();
+            foodItems.add(String.valueOf(me.getKey()));
+            foodQtys.add((Integer) me.getValue());
+        }
+
+        System.out.println("foodItems: " + foodItems);
+        System.out.println("foodQtys: " + foodQtys);
+
         RecyclerView view = findViewById(R.id.recycler_display_orders);
-        adapter = new DisplayAdapter(this, orderDetail);
+//        adapter = new DisplayAdapter(this, orderDetail);
+        // Instead of a hashmap, pass 2 arraylist into DisplayAdapter
+        adapter = new DisplayAdapter(this, foodItems, foodQtys);
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
     }

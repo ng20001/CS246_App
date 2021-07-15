@@ -25,6 +25,7 @@ public class showOrders extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_orders);
+        System.out.println("Entered show order lists (order numbers)");
 
         Bundle bundle = getIntent().getExtras();
         //ArrayList<MenuItem> arraylist = bundle.getParcelableArrayList("MENU");
@@ -63,6 +64,7 @@ public class showOrders extends AppCompatActivity {
                 System.out.println("'list'");
                 System.out.println(list);
 
+                System.out.println("Entering BOH");
                 startActivity(intent);
             }
         });

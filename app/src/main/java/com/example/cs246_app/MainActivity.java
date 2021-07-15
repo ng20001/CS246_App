@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickSeeOrders(View view){
 //        Button: "SEE ORDERS" to Layout: activity_show_orders
         Intent intent = new Intent(this, showOrders.class);
+        System.out.println("Entering show order lists");
         startActivity(intent);
     }
 }

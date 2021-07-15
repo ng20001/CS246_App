@@ -67,8 +67,6 @@ public class payOrder extends AppCompatActivity {
         for(int i = 0; i<recyclerView.getChildCount(); i++){
             PayAdapter.ViewHolder vh = (PayAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
             orderItems.put(adapter.getItem(i), vh.item);
-//            System.out.println("--vh.item--");
-//            System.out.println(vh.item); // 0
         }
 
         // send order list to boh?
