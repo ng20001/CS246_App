@@ -61,8 +61,8 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
         View row;
         ViewHolder(View itemView) {
             super(itemView);
-            foodItem = itemView.findViewById(R.id.foodItemDisplay2);
-            qty = itemView.findViewById(R.id.quantityBtn2);
+            foodItem = itemView.findViewById(R.id.foodItem);
+            qty = itemView.findViewById(R.id.qty);
             itemView.setOnClickListener(this);  
             row = itemView;
         }
