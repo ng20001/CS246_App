@@ -27,13 +27,10 @@ public class payOrder extends AppCompatActivity {
 //        Log.d("debug", intent.getExtras().get());
 
         // Get the orderItems from editOrder.onClickPay()
-//        Map<MenuItem, Integer> menu = (Map<MenuItem, Integer>) args.getSerializable("MENU");
         Map<MenuItem, Integer> menu = (Map<MenuItem, Integer>) args.getSerializable("MENU");
         double total = (double) args.getSerializable("Total");
 
-
         List<Map.Entry<MenuItem, Integer>> customOrder = new ArrayList<>(menu.entrySet());
-
 
         //update the Pay adapter to receive list
         //update the adapter so it populates the rows using the info from inside the list
@@ -43,12 +40,10 @@ public class payOrder extends AppCompatActivity {
         adapter = new PayAdapter(this, customOrder);
         view.setLayoutManager(new LinearLayoutManager(this));
 
-        // Q: Why is the listing order random?
-        System.out.println("---------------------");
+        System.out.println("----------order list before final submit-----------");
         for (int i = 0; i < customOrder.size(); i++) {
             System.out.println(adapter.getItem(i));
         }
-        System.out.println("---------------------");
 
         totalAmount.setText("$" + total);
         view.setAdapter(adapter);
@@ -65,13 +60,22 @@ public class payOrder extends AppCompatActivity {
         int val = Min + (int)(Math.random()*((Max - Min)+1));
         String random = String.valueOf(val);
         RecyclerView recyclerView = findViewById(R.id.recycler_pay_orders);
+
+        // Q: Why one extra value (Integer)?
         Map<Map.Entry<MenuItem, Integer>, Integer> orderItems = new HashMap<>();
+
         for(int i = 0; i<recyclerView.getChildCount(); i++){
             PayAdapter.ViewHolder vh = (PayAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
             orderItems.put(adapter.getItem(i), vh.item);
+//            System.out.println("--vh.item--");
+//            System.out.println(vh.item); // 0
         }
 
+        // send order list to boh?
         MainActivity.INSTANCE.orders.put(random, orderItems);
+
+        System.out.println("------------order list submitted-------------");
+        System.out.println(orderItems);
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

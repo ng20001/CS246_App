@@ -37,15 +37,32 @@ public class showOrders extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 String item = adapter.getItem(position);
-                HashMap<MenuItem, Integer> list = new HashMap<>();
+
+                // list init
+//                HashMap<MenuItem, Integer> list = new HashMap<>();
+                HashMap<String, Integer> list = new HashMap<>();
+
                 //MainActivity.orders.get(item);
                 for(Map.Entry<Map.Entry<MenuItem, Integer>, Integer> element : MainActivity.orders.get(item).entrySet()){
+
                     //get the menu item and the count
-                    //element.getValue();
-                    list.put(element.getKey().getKey(), element.getValue());
+                    // Changed element.getValue() => element.getKey().getValue()
+                    // "element" key: <MenuItem, Integer> (MenuItem, qty)
+                    // MenuItem: foodItem, cost
+                    // "element" value: Integer (? value)
+
+//                    list.put(element.getKey().getKey(), element.getKey().getValue());
+                    list.put(element.getKey().getKey().foodItem, element.getKey().getValue());
                 }
+
+                // Go to BOH(individual order details) when an order item # is clicked
                 Intent intent = new Intent(showOrders.this, backOfHouse.class);
+                // Send the individual order details along
                 intent.putExtra("MENU", list);
+
+                System.out.println("'list'");
+                System.out.println(list);
+
                 startActivity(intent);
             }
         });

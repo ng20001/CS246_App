@@ -7,19 +7,20 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHolder> {
-    private List<Map.Entry<MenuItem, Integer>> mData;
+
+    private HashMap<String, Integer> mData;
     private LayoutInflater mInflater;
     private DisplayAdapter.ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    DisplayAdapter(Context context, List<Map.Entry<MenuItem, Integer>> data) {
+//    DisplayAdapter(Context context, List<MenuItem> data) {
+    DisplayAdapter(Context context, HashMap<String, Integer> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -33,10 +34,17 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
 
     // binds the data to the TextView in each row
     @Override
-    public void onBindViewHolder(PayAdapter.ViewHolder holder, int position) {
-        Map.Entry<MenuItem, Integer> entry = mData.get(position);
-        holder.foodItem.setText(entry.getKey().foodItem);
-        holder.qty.setText(String.valueOf(entry.getValue()));
+    public void onBindViewHolder(DisplayAdapter.ViewHolder holder, int position) {
+//        HashMap<String, Integer> menu = mData.get(position);
+        System.out.println("'position'");
+        System.out.println(position);
+        System.out.println("'mData.entrySet()'");
+        System.out.println(mData.entrySet());
+        System.out.println("'mData.keySet()'");
+        System.out.println(mData.keySet());
+
+        holder.foodItem.setText("food item here");
+        holder.qty.setText("qty here");
     }
 
     // total number of rows
@@ -48,26 +56,17 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView foodItem, qty;
-
+        EditText foodItem;
+        EditText qty;
         View row;
         ViewHolder(View itemView) {
             super(itemView);
-            foodItem = itemView.findViewById(R.id.foodItem);
-            qty = itemView.findViewById(R.id.qty);
-
-            itemView.setOnClickListener(this);
+            foodItem = itemView.findViewById(R.id.foodItemDisplay2);
+            qty = itemView.findViewById(R.id.quantityBtn2);
+            itemView.setOnClickListener(this);  
             row = itemView;
-
         }
-        int item = 0;
 
-        public void displayQuantity(){
-            //find view by id
-            EditText text = row.findViewById(R.id.qty);
-            //set text to it
-            text.setText(String.valueOf(item));
-        }
         @Override
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
@@ -75,8 +74,8 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
     }
 
     // convenience method for getting data at click position
-    Map.Entry <MenuItem, Integer> getItem(int id) {
-        return mData.get(id);
+    String getItem(int id) {
+        return String.valueOf(mData.get(id));
     }
 
     // allows clicks events to be caught
@@ -88,5 +87,6 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+    //adding comments
 }
 

@@ -41,7 +41,7 @@ public class MenuItem implements Parcelable {
 
     @Override
     public String toString() {
-        return "name: " + foodItem + "\nprice: " + cost;
+        return "\nname: " + foodItem + "; price: " + cost;
     }
 
     @Override
