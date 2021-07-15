@@ -55,7 +55,7 @@ public class payOrder extends AppCompatActivity {
 //        1. Return to the main view
 //        2. Send the order list to BOH
 
-       int Min = 1;
+        int Min = 1;
         int Max = 100;
         int val = Min + (int)(Math.random()*((Max - Min)+1));
         String random = String.valueOf(val);
@@ -69,8 +69,9 @@ public class payOrder extends AppCompatActivity {
             orderItems.put(adapter.getItem(i), vh.item);
         }
 
+        Bundle args = getIntent().getExtras();
         // send order list to boh?
-        MainActivity.INSTANCE.orders.put(random, orderItems);
+        MainActivity.INSTANCE.orders.put(args.getString("NAME"), orderItems);
 
         System.out.println("------------order list submitted-------------");
         System.out.println(orderItems);
@@ -78,5 +79,8 @@ public class payOrder extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
+    }
+    public void onclickBack(View view){
+        finish();
     }
 }

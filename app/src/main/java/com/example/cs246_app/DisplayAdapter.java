@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHolder> {
+    //create the two lists that will be displayed
     private ArrayList<String> foodItems;
     private ArrayList<Integer> foodQtys;
 //    private HashMap<String, Integer> mData;
@@ -24,6 +25,7 @@ public class DisplayAdapter extends RecyclerView.Adapter<DisplayAdapter.ViewHold
     private DisplayAdapter.ItemClickListener mClickListener;
 
     // data is passed into the constructor
+    //passing the two lists
 //    DisplayAdapter(Context context, List<MenuItem> data) {
     DisplayAdapter(Context context, ArrayList<String> foodItems, ArrayList<Integer> foodQtys) {
         this.mInflater = LayoutInflater.from(context);

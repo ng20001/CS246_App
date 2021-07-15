@@ -7,26 +7,28 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_show_orders"
-        android:layout_width="393dp"
-        android:layout_height="499dp"
+        android:layout_width="413dp"
+        android:layout_height="602dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintVertical_bias="0.121" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="246dp"
-        android:layout_height="45dp"
-        android:text="Orders:"
-        android:textColor="#333333"
-        android:textSize="24sp"
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onClickBack"
+        android:text="go back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintTop_toBottomOf="@+id/recycler_show_orders"
+        app:layout_constraintVertical_bias="0.297" />
+
     <!-- Write your comment-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,7 @@ import java.util.Map;
 
 public class showOrders extends AppCompatActivity {
     ShowAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +61,7 @@ public class showOrders extends AppCompatActivity {
                 Intent intent = new Intent(showOrders.this, backOfHouse.class);
                 // Send the individual order details along
                 intent.putExtra("MENU", list);
-
+                intent.putExtra("ORDER_ID", item);
                 System.out.println("'list'");
                 System.out.println(list);
 
@@ -78,5 +79,9 @@ public class showOrders extends AppCompatActivity {
         RecyclerView view = findViewById(R.id.recycler_show_orders);
         adapter = new ShowAdapter(this, new ArrayList<>(MainActivity.INSTANCE.orders.keySet()));
         view.setAdapter(adapter);
+    }
+
+    public void onClickBack(View view){
+        finish();
     }
 }

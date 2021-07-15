@@ -21,13 +21,28 @@
         android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
         android:onClick="onClickDone"
         android:text="Done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/recycler_display_orders"
-        app:layout_constraintVertical_bias="0.968" />
+        app:layout_constraintVertical_bias="0.959" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
+        android:onClick="onClickBack"
+        android:text="go back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/done"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.959" />
     <!-- Write your comment-->
 </androidx.constraintlayout.widget.ConstraintLayout>

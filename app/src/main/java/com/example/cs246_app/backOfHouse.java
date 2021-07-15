@@ -20,6 +20,7 @@ import java.util.Set;
 
 public class backOfHouse extends AppCompatActivity {
     DisplayAdapter adapter;
+    //two lists that will be used
     private ArrayList<String> foodItems = new ArrayList<>();
     private ArrayList<Integer> foodQtys = new ArrayList<>();
 
@@ -63,6 +64,13 @@ public class backOfHouse extends AppCompatActivity {
     }
 
     public void onClickDone(View view){
+        //remove(key);
+        Bundle args = getIntent().getExtras();
+        String orderID = args.getString("ORDER_ID");
+        MainActivity.orders.remove(orderID);
+        finish();
+    }
+    public void onClickBack(View view){
         finish();
     }
 }

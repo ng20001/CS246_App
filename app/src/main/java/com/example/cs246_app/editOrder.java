@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -82,6 +83,10 @@ public class editOrder extends AppCompatActivity {
         if (validOrder){
             Intent intent = new Intent(this, payOrder.class);
 
+            TextView nameView = findViewById(R.id.clientName);
+            String name = nameView.getText().toString();
+            intent.putExtra("NAME", name);
+
             intent.putExtra("MENU", orderItems);
             intent.putExtra("Total", total);
             startActivity(intent);
@@ -93,5 +98,8 @@ public class editOrder extends AppCompatActivity {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
+    }
+    public void onclickBack(View view){
+        finish();
     }
 }

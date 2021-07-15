@@ -10,14 +10,14 @@
         android:id="@+id/submit2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         android:onClick="onClickSubmit"
         android:text="Submit order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
+        app:layout_constraintVertical_bias="0.953" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_pay_orders"
@@ -59,6 +59,21 @@
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="@+id/recycler_pay_orders"
         app:layout_constraintVertical_bias="0.858" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:onClick="onclickBack"
+        android:text="edit order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/submit2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
 
     <!-- Write your comment-->
 </androidx.constraintlayout.widget.ConstraintLayout>
