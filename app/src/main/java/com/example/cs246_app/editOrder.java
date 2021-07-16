@@ -66,6 +66,7 @@ public class editOrder extends AppCompatActivity {
         HashMap<MenuItem, Integer> orderItems = new HashMap<>();
 
         double total = 0;
+        double totalWT = 0;
         boolean validOrder = false;
         // Creating the recycler view for the pay list: vh
         for(int i = 0; i<recyclerView.getChildCount(); i++){
@@ -78,6 +79,7 @@ public class editOrder extends AppCompatActivity {
                 total += adapter.getItem(i).cost * vh.item;
                 validOrder = true;
             }
+            totalWT = total + total*0.15;
         }
 
         if (validOrder){
@@ -89,6 +91,7 @@ public class editOrder extends AppCompatActivity {
 
             intent.putExtra("MENU", orderItems);
             intent.putExtra("Total", total);
+            intent.putExtra("TotalWT", totalWT);
             startActivity(intent);
         } else {
             Context context = getApplicationContext();

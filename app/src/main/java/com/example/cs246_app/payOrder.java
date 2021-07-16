@@ -29,6 +29,7 @@ public class payOrder extends AppCompatActivity {
         // Get the orderItems from editOrder.onClickPay()
         Map<MenuItem, Integer> menu = (Map<MenuItem, Integer>) args.getSerializable("MENU");
         double total = (double) args.getSerializable("Total");
+        double totalWT = (double) args.getSerializable("TotalWT");
 
         List<Map.Entry<MenuItem, Integer>> customOrder = new ArrayList<>(menu.entrySet());
 
@@ -36,6 +37,7 @@ public class payOrder extends AppCompatActivity {
         //update the adapter so it populates the rows using the info from inside the list
         RecyclerView view = findViewById(R.id.recycler_pay_orders);
         TextView totalAmount = findViewById(R.id.total);
+        TextView totalWTAmount = findViewById(R.id.totalWithTax);
 
         adapter = new PayAdapter(this, customOrder);
         view.setLayoutManager(new LinearLayoutManager(this));
@@ -46,6 +48,7 @@ public class payOrder extends AppCompatActivity {
         }
 
         totalAmount.setText("$" + total);
+        totalWTAmount.setText("$" + totalWT);
         view.setAdapter(adapter);
 
     }
