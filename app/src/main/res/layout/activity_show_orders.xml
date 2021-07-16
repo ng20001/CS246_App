@@ -7,7 +7,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_show_orders"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="550dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
