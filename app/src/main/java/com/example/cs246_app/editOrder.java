@@ -74,6 +74,11 @@ public class editOrder extends AppCompatActivity {
             OrderAdapter.ViewHolder vh = (OrderAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
             // adapter.getItem(i): MenuItem (foodItem, cost)
             // vh.item: Int (qty of foodItem)
+            Intent intent = new Intent(this, payOrder.class);
+
+            TextView nameView = findViewById(R.id.clientName);
+            String name = nameView.getText().toString();
+            intent.putExtra("NAME", name);
             if (vh.item != 0) { // Only include the food item that has qty >= 1
                 orderItems.put(adapter.getItem(i), vh.item);
                 total += adapter.getItem(i).cost * vh.item;

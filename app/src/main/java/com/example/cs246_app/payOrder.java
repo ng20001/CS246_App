@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -66,12 +68,14 @@ public class payOrder extends AppCompatActivity {
 
         // Q: Why one extra value (Integer)?
         Map<Map.Entry<MenuItem, Integer>, Integer> orderItems = new HashMap<>();
+        Map<String, Long> orderItems2 = new HashMap<>();
 
         for(int i = 0; i<recyclerView.getChildCount(); i++){
             PayAdapter.ViewHolder vh = (PayAdapter.ViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
-            orderItems.put(adapter.getItem(i), vh.item);
+            orderItems.put(adapter.getItem(i), adapter.getItem(i).getValue());
+            orderItems2.put(adapter.getItem(i).getKey().getFoodItem(), Long.valueOf(adapter.getItem(i).getValue()));
         }
-
+        System.out.println(orderItems2);
         Bundle args = getIntent().getExtras();
         // send order list to boh?
         MainActivity.INSTANCE.orders.put(args.getString("NAME"), orderItems);
@@ -82,6 +86,13 @@ public class payOrder extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
+        Map<String, Object> order = new HashMap<>();
+        order.put("name", args.getString("NAME"));
+        order.put("orderItems", orderItems2);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("orders").document(args.getString("NAME"))
+                .set(order);
     }
     public void onclickBack(View view){
         finish();

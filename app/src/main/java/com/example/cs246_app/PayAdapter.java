@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -64,14 +65,7 @@ public class PayAdapter extends RecyclerView.Adapter<PayAdapter.ViewHolder> {
             row = itemView;
 
         }
-        int item = 0;
 
-        public void displayQuantity(){
-            //find view by id
-            EditText text = row.findViewById(R.id.quantityBtn3);
-            //set text to it
-            text.setText(String.valueOf(item));
-        }
         @Override
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
